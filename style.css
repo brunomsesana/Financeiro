@@ -6,7 +6,8 @@ body{
     background-color: rgb(26, 22, 22);
     color: white;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 table, td, th{
     text-align: center;
@@ -17,14 +18,22 @@ table {
     width: 100%;
 }
 #financas{
-    width: 100%;
+    width: 70%;
     text-align: center;
 }
-#financas input {
+select{
     width: 24%;
+    height: 30px;
+    margin: 0.1%;
+    border-radius: 10px;
+    background-color: rgb(199, 199, 199);
+    border: none;
 }
-#financas select{
+input{
     width: 24%;
+    height: 26px;
+    border-radius: 10px;
+    border: none;
 }
 #add-financas{
     margin-bottom: 20px;
@@ -43,6 +52,18 @@ td{
     padding-left: 10px;
     margin-top: 30px;
 }
-#divFin{
-    width: 70%;
+#header{
+    align-self: flex-start;
+    margin: 20px;
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#divLang{
+    width: 100%;
+}
+#divSave{
+    text-align: right;
 }

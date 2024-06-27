@@ -25,14 +25,13 @@ function addReg(tipo, desc, prec){
     tr.append(td2);
     tr.append(td3);
     document.getElementById("regs").append(tr);
-    return td1.innerHTML;
 }
 function addFin(e){
     e.preventDefault();
     let tipo = document.getElementById("tipo").value
     let desc = document.getElementById("descricao").value
     let prec = document.getElementById("preco").value
-    let tip = addReg(tipo, desc, prec);
+    addReg(tipo, desc, prec);
     let preco = parseFloat(prec);
     let GTotal = parseFloat(document.getElementById("GTotal").innerHTML);
     let RTotal = parseFloat(document.getElementById("RTotal").innerHTML);
@@ -56,7 +55,7 @@ function addFin(e){
         document.getElementById("Total").innerHTML = Total;
     }
     financas.push({
-        "Tipo": tip,
+        "Tipo": tipo,
         "Descrição": desc,
         "Preço": parseFloat(prec)
     })
@@ -73,7 +72,8 @@ function save(){
     ws = wb.Sheets["Data"];
     XLSX.utils.sheet_add_aoa(ws, [["Total:", "", {f: ("SUM(C2:C" + (financas.length+1) + ")")}]], {origin: "A" + (financas.length+2)});
     ws["!merges"] = [{s: {r: financas.length+1, c: 0}, e:{r: financas.length+1, c: 1}}];
-    XLSX.writeFile(wb, "Export" + "" + ".xlsx");
+    let date = new Date()
+    XLSX.writeFile(wb, "Export (" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + Math.floor(Date.now() / 3600000) + ":" + Math.floor(Date.now() / 60000) + ":" + Math.floor(Date.now() / 1000) + ").xlsx");
 }
 function load(){
 
@@ -117,6 +117,8 @@ function ChangeLang(valor){
         document.getElementById("Total1").innerHTML = "Total expense:";
         document.getElementById("Total2").innerHTML = "Total income:";
         document.getElementById("Total3").innerHTML = "Total:";
+        document.getElementById("save").innerHTML = "Export";
+        document.getElementById("load").innerHTML = "Import";
     } else if (valor == "pt-br"){
         document.getElementById("title").innerHTML = "Controle Financeiro";
         document.getElementById("opt1").innerHTML = "Tipo de registro";
@@ -154,6 +156,8 @@ function ChangeLang(valor){
         document.getElementById("Total1").innerHTML = "Gasto total:";
         document.getElementById("Total2").innerHTML = "Receita total:";
         document.getElementById("Total3").innerHTML = "Total:";
+        document.getElementById("save").innerHTML = "Exportar";
+        document.getElementById("load").innerHTML = "Importar";
     }
     for (let i in financasTable){
         addReg(financasTable[i].tipo, financasTable[i].desc, financasTable[i].prec);
