@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+body{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    margin: 0;
+    background-color: rgb(26, 22, 22);
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+table, td, th{
+    text-align: center;
+    border: solid black 1px;
+    border-collapse: collapse;
+}
+table {
+    width: 100%;
+}
+#financas{
+    width: 100%;
+    text-align: center;
+}
+#financas input {
+    width: 24%;
+}
+#financas select{
+    width: 24%;
+}
+#add-financas{
+    margin-bottom: 20px;
+}
+th{
+    background-color: rgb(66, 116, 136);
+}
+td{
+    background-color: rgb(75, 75, 75);
+}
+#totais{
+    text-align: left;
+    border: solid rgb(66, 116, 136) 10px;
+    background-color: rgb(75, 75, 75);
+    border-radius: 15px;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+#divFin{
+    width: 70%;
+}

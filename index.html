@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Financeiro</title>
+</head>
+<body>
+    <div id="divFin">
+        <div>
+            <label for="lang">Linguagem: </label>
+            <select name="lang" id="lang" onchange="ChangeLang(this.value)">
+                <option value="pt-br">Português do Brasil</option>
+                <option value="en-us">English (US)</option>
+            </select>
+            <br>
+            <label for="moeda">Moeda: </label>
+            <select name="moeda" id="moeda" onchange="ChangeMoeda(this.value)">
+                <option value="R$" id="R$">Real Brasileiro (R$)</option>
+                <option value="$" id="$">Dólar Americano ($)</option>
+                <option value="€" id="€">Euro (€)</option>
+                <option value="£" id="£">Libra Esterlina (£)</option>
+                <option value="¥" id="¥">Iene Japonês (¥)</option>
+                <option value="C$" id="C$">Dólar Canadense (C$)</option>
+                <option value="A$" id="A$">Dólar Australiano (A$)</option>
+                <option value="CHF" id="CHF">Franco Suíço (CHF)</option>
+                <option value="¥" id="CNY">Yuan Chinês (¥)</option>
+                <option value="₹" id="INR">Rupia Indiana (₹)</option>
+                <option value="₽" id="RUB">Rublo Russo (₽)</option>
+                <option value="₩" id="KRW">Won Sul-Coreano (₩)</option>
+                <option value="R" id="ZAR">Rand Sul-Africano (R)</option>
+                <option value="₺" id="TRY">Lira Turca (₺)</option>
+                <option value="MX$" id="MXN">Peso Mexicano (MX$)</option>
+                <option value="S$" id="SGD">Dólar de Singapura (S$)</option>
+                <option value="NZ$" id="NZD">Dólar Neozelandês (NZ$)</option>
+                <option value="฿" id="THB">Baht Tailandês (฿)</option>
+                <option value="د.إ" id="AED">Dirham dos Emirados Árabes Unidos (د.إ)</option>
+                <option value="﷼" id="SAR">Riyal Saudita (﷼)</option>
+                <option value="₪" id="ILS">Shekel Israelense (₪)</option>
+            </select>            
+        </div>
+        <div id="financas">
+            <h1 id="title">Controle Financeiro</h1>
+            <form id="add-financas" onsubmit="return addFin(event)">
+                <select name="tipo" id="tipo" required>
+                    <option value="" selected hidden id="opt1">Tipo de registro</option>
+                    <option value="1" id="opt2">Gasto</option>
+                    <option value="2" id="opt3">Receita</option>
+                </select>
+                <input type="text" id="descricao" name="descricao" placeholder="Descrição" required>
+                <input type="number" step="any" min="0" name="preco" id="preco" placeholder="Preço" required>
+                <input type="submit" id="submit" value="Inserir">
+            </form>
+            <table id="regs">
+                <tr>
+                    <th id="col1">Tipo</th>
+                    <th id="col2">Descrição</th>
+                    <th id="col3">Preço</th>
+                </tr>
+            </table>
+            <div id="totais">
+                <h3><span id="Total1">Gasto total:</span> <span class="moeda">R$</span><span id="GTotal">0,00</span></h3>
+                <h3><span id="Total2">Receita total:</span> <span class="moeda">R$</span><span id="RTotal">0,00</span></h3>
+                <h3><span id="Total3">Total:</span> <span id="UniTotal"></span><span class="moeda">R$</span><span id="Total">0,00</span></h3>
+            </div>
+            <button onclick="save()">Salvar</button>
+        </div>
+    </div>
+    <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
