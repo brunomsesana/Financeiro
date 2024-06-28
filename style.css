@@ -28,12 +28,14 @@ select{
     border-radius: 10px;
     background-color: rgb(199, 199, 199);
     border: none;
+    text-align: center;
 }
 input{
     width: 24%;
     height: 26px;
     border-radius: 10px;
     border: none;
+    text-align: center;
 }
 #add-financas{
     margin-bottom: 20px;
