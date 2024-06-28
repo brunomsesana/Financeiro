@@ -93,15 +93,17 @@ function addFin(e){
 function save(){
     let wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(financas), "Data");
-    ws = wb.Sheets["Data"];
+    let ws = wb.Sheets["Data"];
     XLSX.utils.sheet_add_aoa(ws, [["Total:", "", {f: ("SUM(C2:C" + (financas.length+1) + ")")}]], {origin: "A" + (financas.length+2)});
     XLSX.utils.sheet_add_aoa(ws, [[tipoTitle, descTitle, precTitle]], {origin: "A1"});
     ws["!merges"] = [{s: {r: financas.length+1, c: 0}, e:{r: financas.length+1, c: 1}}];
     let date = new Date()
-    XLSX.writeFile(wb, "Export (" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + Math.floor(Date.now() / 3600000) + ":" + Math.floor(Date.now() / 60000) + ":" + Math.floor(Date.now() / 1000) + ").xlsx");
-    XLSX.utils.book_append_sheet(wb, XLSX.utils.json_to_sheet(financas), "View");
-    ws2 = wb.Sheets["View"];
-    XLSX.utils.sheet_add_aoa(ws2, [{f: ("INDEX(Data!A2:A" + (financas.length+1) + "," + 0 + ")")}]);
+    wb.SheetNames.push("View");
+    aoa = [[tipoTitle, descTitle, precTitle/**/]];
+    let ws2 = XLSX.utils.aoa_to_sheet(aoa);
+    wb.Sheets["View"] = ws2;
+    XLSX.utils.sheet_add_aoa(wb.Sheets["View"], [[3, 2, {f: ("SUM(Data!A2" + "" + ")")}]], {origin: "A1"});
+    XLSX.writeFile(wb, "Export (" + date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "." + date.getMinutes() + "." + date.getSeconds() + ").xlsx");
 }
 function load(){
 
