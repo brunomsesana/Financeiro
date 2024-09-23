@@ -3,8 +3,8 @@ body{
     font-family: 'Poppins', sans-serif;
     width: 100%;
     margin: 0;
-    background-color: rgb(26, 22, 22);
-    color: white;
+    background-color: var(--Fundo);
+    color: var(--Texto);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,9 +26,10 @@ select{
     height: 30px;
     margin: 0.1%;
     border-radius: 10px;
-    background-color: rgb(199, 199, 199);
+    background-color: var(--Botoes);
     border: none;
     text-align: center;
+    color: var(--TextoOposto);
 }
 input{
     width: 24%;
@@ -36,20 +37,43 @@ input{
     border-radius: 10px;
     border: none;
     text-align: center;
+    background-color: var(--Botoes);
+    color: var(--TextoOposto);
+}
+input[type="submit"]{
+    width: 10%;
+}
+button{
+    margin: 5px;
+    height: 26px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    background-color: var(--Botoes);
+    color: var(--TextoOposto);
+}
+button:hover{
+    background-color: var(--BotoesHover);
+}
+input[type="submit"]:hover{
+    background-color: var(--BotoesHover);
+}
+::placeholder{
+    color: var(--PlaceHolder);
 }
 #add-financas{
     margin-bottom: 20px;
 }
 th{
-    background-color: rgb(66, 116, 136);
+    background-color: var(--Primaria);
 }
 td{
-    background-color: rgb(75, 75, 75);
+    background-color: var(--FundoSecundario);
 }
 #totais{
     text-align: left;
-    border: solid rgb(66, 116, 136) 10px;
-    background-color: rgb(75, 75, 75);
+    border: solid var(--Primaria) 10px;
+    background-color: var(--FundoSecundario);
     border-radius: 15px;
     padding-left: 10px;
     margin-top: 30px;
@@ -60,12 +84,82 @@ td{
     width: calc(100% - 40px);
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
 }
 #divLang{
     width: 100%;
+    display: flex;
+    flex-direction: column;
 }
 #divSave{
     text-align: right;
+}
+.aviso{
+    color: var(--Negativo);
+}
+#mod{
+    width: fit-content;
+    height: fit-content;
+    background-color: transparent !important;
+    border: none !important;
+    padding: 0;
+    margin: 10 0;
+}
+.dark, .light{
+    transition: 0.2s;
+}
+.nuvem{
+    transition: 0.1s;
+}
+::-webkit-scrollbar{
+    width: 10px;
+    background-color: transparent;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background-color: var(--Texto);
+    opacity: 0.5;
+}
+.td3{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.td3 button{
+    justify-self: flex-end;
+}
+.td3 p, .td3 input{
+    justify-self: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sel{
+    background-color: var(--Primaria) !important;
+}
+@media screen and (max-width: 750px) {
+    input, select{
+        width: 35%;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+    input[type="submit"]{
+        width: 20%;
+    }
+}
+@media screen and (max-width: 500px) {
+    #mod{
+        width: 50%;
+    }
+    input[type="submit"]{
+        width: fit-content;
+    }
+    input, select{
+        width: 50%;
+    }
+    #add-financas{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
