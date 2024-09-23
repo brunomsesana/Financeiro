@@ -1,0 +1,43 @@
+/* Paleta de cores tema escuro: */
+:root{
+    --Primaria: #427488;
+    --Secundaria: #472700;
+    --Fundo: #1a1616;
+    --FundoSecundario: #4b4b4b;
+    --FundoTerciario: #3f3f3f;
+    --Botoes: #C7C7C7;
+    --BotoesHover: #a8a8a8;
+    --Positivo: #56AF5F;
+    --Negativo: #D95252;
+    --Texto: #ffffff;
+    --TextoOposto: #000000;
+    --PlaceHolder: #777777;
+    --Scrollbar: #ffffff80;
+    --FundoPort1: #427488;
+    --FundoPort2: #425E87;
+    --FundoPort3: #428785;
+    --FundoPort4: #43466b;
+    --FundoPort5: #12132c;
+}
+/* Paleta de cores tema claro */
+.claro{
+    --Primaria: #5ce1e6 !important;
+    --Secundaria: #B06109 !important;
+    --Fundo: #ebebeb !important;
+    --FundoSecundario: #b6b6b6 !important;
+    --FundoTerciario: #7a7a7a !important;
+    --Botoes: #ffffff !important;
+    --BotoesHover: #e4e4e4 !important;
+    --Positivo: #00880e !important;
+    --Negativo: #c00606 !important;
+    --Texto: #000000 !important;
+    --Scrollbar: #00000080 !important;
+    --FundoPort1: #5ce1e6 !important;
+    --FundoPort2: #59b0d9 !important;
+    --FundoPort3: #59d9ad !important;
+    --FundoPort4: #868ce3 !important;
+    --FundoPort5: #9c9ed1 !important;
+}
+.claro input, button, select, textarea{
+    border: solid 1px black !important;
+}
